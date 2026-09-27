@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistem Informasi & Jadwal PKL SAMSAT Cimahi</title>
+    <!-- Font Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <!-- CSS Terpisah -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Ornamen Hiasan Bunga Melayang -->
+    <div class="flower-decoration f1" aria-hidden="true">🌟</div>
+    <div class="flower-decoration f2" aria-hidden="true">🌺</div>
+    <div class="flower-decoration f3" aria-hidden="true">🌷</div>
+    <div class="flower-decoration f4" aria-hidden="true">🌻</div>
+    <div class="flower-decoration f5" aria-hidden="true">🐰</div>
+    <div class="flower-decoration f6" aria-hidden="true">💐</div>
+
+    <!-- Garis Hiasan Background Estetis -->
+    <div class="bg-line line-1" aria-hidden="true"></div>
+    <div class="bg-line line-2" aria-hidden="true"></div>
+    <div class="bg-line line-3" aria-hidden="true"></div>
+
+    <!-- Pemutar Musik Latar Belakang -->
+    <div class="music-player-container">
+        <!-- PERBAIKAN: Proper CSS 'letter-spacing' digunakan menggantikan 'tracking' -->
+        <p class="music-label" style="font-size: 16px; font-weight: 800; margin-bottom: 8px; color: #ff0000; text-transform: uppercase; letter-spacing: 0.5px;">
+            🔔 KONTROL MUSIK DI SINI:
+        </p>
+        
+        <audio id="bgMusic" loop autoplay muted playsinline preload="auto">
+            <source src="lagukitaberbeda.mp3" type="audio/mpeg">
+            Browser Anda tidak mendukung pemutar audio.
+        </audio>
+        <button id="musicToggleBtn" class="music-btn" onclick="toggleMusic()" aria-label="Kontrol Pemutar Musik">🎵 Jeda Musik</button>
+    </div>
+
+    <div class="container">
+        <!-- Header & Navigation -->
+        <header>
+            <div class="decorative-top-line"></div>
+            <h1 class="aesthetic-title">🏢 SAMSAT CIMAHI 🏢</h1>
+            <p class="subtitle">Portal Informasi & Sistem Penjadwalan Praktik Kerja Lapangan (PKL)</p>
+            
+            <!-- Status Operasional Realtime -->
+            <div class="status-badge" id="statusBadge" aria-live="polite">
+                <span class="dot"></span> <span id="statusText">Mengecek Status Operasional...</span>
+            </div>
+            
+            <nav class="nav-tabs" aria-label="Navigasi Utama">
+                <button class="tab-btn active" onclick="openTab(event, 'pengenalan')">🏢 Pengenalan</button>
+                <button class="tab-btn" onclick="openTab(event, 'sejarah')">📜 Sejarah</button>
+                <button class="tab-btn" onclick="openTab(event, 'jam-kerja')">🕑 Jam Operasional & PKL</button>
+                <button class="tab-btn" onclick="openTab(event, 'jadwal-pkl')">🗓️ Jadwal PKL</button>
+                <button class="tab-btn" onclick="openTab(event, 'kontak')">💡 Alamat & Kontak</button>
+            </nav>
+        </header>
+
+        <!-- HALAMAN 1: PENGENALAN -->
+        <section id="pengenalan" class="tab-content active">
+            <div class="section-header">
+                <h2>Pengenalan SAMSAT Cimahi</h2>
+                <div class="decorative-line"></div>
+            </div>
+
+            <div class="image-card">
+                <img src="https://blue.kumparan.com/image/upload/fl_progressive,fl_lossy,c_fill,q_auto:best,w_640/v1634025439/01g7bseav1kk1at1rqtbaca4ze.jpg" alt="Gedung SAMSAT Cimahi">
+                <p class="img-caption">🏢 Gedung Kantor SAMSAT Cimahi - Jawa Barat</p>
+            </div>
+
+            <div class="content-box highlight-pink">
+                <h2><b>📖 Apa Itu SAMSAT?</b></h2>
+                <p><strong>SAMSAT</strong> merupakan singkatan dari <em>Sistem Administrasi Manunggal Satu Atap</em>. SAMSAT diatur oleh <strong>Peraturan Presiden (PP) No. 5 Tahun 2015</strong> tentang Penyelenggaraan SAMSAT. SAMSAT merupakan rangkaian sistem yang berfungsi untuk menyelenggarakan beberapa tugas seperti Registrasi dan Identifikasi Kendaraan Bermotor (Regiden Ranmor) hingga pembayaran Sumbangan Wajib Dana Kecelakaan Lalu Lintas dan Angkutan Jalan (SWDKLLJ).</p>
+            </div>
+
+            <div class="content-box highlight-purple">
+                <h2><b>🏛️ Tiga Instansi Pelaksana SAMSAT</b></h2>
+                <p>SAMSAT terdiri dari tiga instansi pelaksana terpadu yang bekerja secara bersinergi:</p>
+                <div class="three-grid">
+                    <div class="mini-card">
+                        <div class="icon">🏢</div>
+                        <h4>Dinas Pendapatan Daerah</h4>
+                        <p>Bertanggung jawab terhadap pengelolaan Pajak Kendaraan Bermotor (PKB).</p>
+                    </div>
+                    <div class="mini-card">
+                        <div class="icon">👮‍♂️</div>
+                        <h4>Ditlantas Polda</h4>
+                        <p>Menjalankan tugas Registrasi dan Identifikasi Kendaraan Bermotor (Regiden Ranmor).</p>
+                    </div>
+                    <div class="mini-card">
+                        <div class="icon">🏥</div>
+                        <h4>PT Jasa Raharja</h4>
+                        <p>Bertugas mengelola Sumbangan Wajib Dana Kecelakaan Lalu Lintas dan Angkutan Jalan (SWDKLLJ).</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- HALAMAN 2: SEJARAH -->
+        <section id="sejarah" class="tab-content">
+            <div class="section-header">
+                <h2>Sejarah SAMSAT & SAMSAT Cimahi</h2>
+                <div class="decorative-line"></div>
+            </div>
+
+            <div class="history-timeline">
+                <div class="timeline-badge">🗓️ Berdiri Sejak Tahun 1977</div>
+                <div class="content-box highlight-blue">
+                    <p>Konsep pelayanan terpadu <strong>SAMSAT dibentuk pertama kali pada tahun 1977</strong> di Indonesia untuk mempermudah masyarakat dalam mengurus dokumen kendaraan tanpa harus mendatangi kantor instansi yang berbeda-beda secara terpisah.</p>
+                    <p><strong>SAMSAT Cimahi - Jawa Barat</strong> hadir sebagai bentuk pelayanan publik dengan menerapkan konsep pelayanan publik terpadu. Bersebelahan dan terintegrasi dengan perkembangan Kota Cimahi, SAMSAT Cimahi secara konsisten memberikan kemudahan layanan melalui integrasi teknologi, fasilitas yang ramah masyarakat, serta pembimbingan bagi generasi muda siswa PKL/Magang untuk belajar tentang administrasi pemerintahan.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- HALAMAN 3: JAM OPERASIONAL & JAM MASUK PKL -->
+        <section id="jam-kerja" class="tab-content">
+            <div class="section-header">
+                <h2>Jadwal Operasional & Jam Kerja PKL</h2>
+                <div class="decorative-line"></div>
+            </div>
+
+            <div class="grid-2col">
+                <div class="card-schedule">
+                    <h3>🏛️ Jam Buka - Tutup SAMSAT</h3>
+                    <table class="simple-table">
+                        <thead>
+                            <tr>
+                                <th>Hari</th>
+                                <th>Jam Pelayanan</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Senin - Jumat</td>
+                                <td><strong>08.00 - 14.00 WIB</strong></td>
+                            </tr>
+                            <tr>
+                                <td>Sabtu</td>
+                                <td><strong>08.00 - 11.00 WIB</strong></td>
+                            </tr>
+                            <tr>
+                                <td>Minggu / Libur</td>
+                                <td><span class="badge-closed">TUTUP</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="card-schedule pkl-card">
+                    <h3>👨‍💻 Jam Masuk & Pulang Siswa PKL</h3>
+                    <div class="pkl-badge">Jadwal Kehadiran Siswa PKL</div>
+                    <div class="time-display">07.30 - 15.00 WIB</div>
+                    <div class="alert-box">
+                        📌 <strong>Catatan Penting Siswa PKL:</strong>
+                        <ul>
+                            <li>Siswa PKL wajib hadir pukul <strong>07.30 WIB</strong> (30 menit sebelum layanan dibuka).</li>
+                            <li>Jam kepulangan PKL adalah pukul <strong>15.00 WIB</strong> setelah rekapitulasi berkas harian selesai.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- HALAMAN 4: JADWAL PKL -->
+        <section id="jadwal-pkl" class="tab-content">
+            <div class="section-header">
+                <h2>Jadwal Bagian Siswa PKL (September 2026)</h2>
+                <div class="decorative-line"></div>
+            </div>
+
+            <!-- Fitur Search -->
+            <div class="search-box">
+                <input type="text" id="searchInput" onkeyup="filterTable()" placeholder="🔍 Cari nama siswa (contoh: Shinta, Nadia, Gaysha, Nabila)..." aria-label="Cari nama siswa PKL">
+            </div>
+
+            <!-- Foto Bersama Siswa PKL SAMSAT Cimahi -->
+            <div class="image-card pkl-photo">
+                <img src="fotopklfiskal.jpeg" alt="Foto Siswa PKL SAMSAT Cimahi">
+                <p class="img-caption">📸 Foto Kebersamaan Siswa PKL di Depan Gedung SAMSAT Cimahi</p>
+            </div>
+
+            <!-- Tabel Jadwal -->
+            <div class="table-responsive">
+                <table id="pklTable">
+                    <thead>
+                        <tr>
+                            <th>Hari / Tanggal</th>
+                            <th>Bagian Fiskal 🖥️🖨️<br><span class="sub-head">(Bu Ade)</span></th>
+                            <th>Bagian Antar Berkas 📑📄<br><span class="sub-head">(Pak Iyan)</span></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Senin, 28 September 2026</strong></td>
+                            <td><span class="tag-name magenta">Nadia</span></td>
+                            <td><span class="tag-name pink">Gaysha</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Selasa, 29 September 2026</strong></td>
+                            <td><span class="tag-name magenta">Gaysha</span></td>
+                            <td><span class="tag-name magenta">Nadia</span></td
+                        </tr>
+                        <tr>
+                            <td><strong>Rabu, 30 September 2026</strong></td>
+                            <td><span class="tag-name purple">Nabila</span></td>
+                            <td><span class="tag-name purple">Gaysha</span></td>
+
+                        </tr>
+                        <tr>
+                            <td><strong>Kamis, 01 Oktober 2026</strong></td>
+                            <td><span class="tag-name purple">Selva</span></td>
+                            <td><span class="tag-name pink">Nadia</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Jum'at, 02 Oktober 2026</strong></td>
+                            <td><span class="tag-name purple">Nadia</span></td>
+                            <td><span class="tag-name purple">Gaysha</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Sabtu, 03 Oktober 2026</strong></td>
+                            <!-- PERBAIKAN: Penulisan nama 'Gasyha' diperbaiki menjadi 'Gaysha' -->
+                            <td><span class="tag-name purple">Gaysha</span></td>
+                            <td><span class="tag-name pink">Nadia</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- HALAMAN 5: ALAMAT & KONTAK -->
+        <section id="kontak" class="tab-content">
+            <div class="section-header">
+                <h2>Alamat Lokasi & Kontak Resmi</h2>
+                <div class="decorative-line"></div>
+            </div>
+
+            <div class="grid-2col">
+                <div class="content-box highlight-pink">
+                    <h3>💡 Lokasi SAMSAT Cimahi</h3>
+                    <p><strong>Alamat Lengkap:</strong><br>
+                    Jalan Raya Cibabat No. 331 A, Cigugur Tengah, Kec. Cimahi Tengah, Kota Cimahi, Jawa Barat 40522, Indonesia.</p>
+                </div>
+
+                <div class="content-box highlight-blue">
+                    <h3>📞 Telepon & WhatsApp</h3>
+                    <p><strong>Telepon Kantor:</strong> (022) 7566197</p>
+                    <p><strong>Layanan WhatsApp / Hotline:</strong> -</p>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <div class="decorative-top-line"></div>
+            <p>&copy; 2026 SAMSAT Cimahi - Portal Informasi & Jadwal PKL Terpadu</p>
+        </footer>
+    </div>
+
+    <!-- Script Utama -->
+    <script src="script.js"></script>
+    <script>
+        // Logika Pengelolaan Pemutar Audio Terpadu
+        function toggleMusic() {
+            const audio = document.getElementById('bgMusic');
+            const btn = document.getElementById('musicToggleBtn');
+
+            if (!audio || !btn) return;
+
+            if (audio.paused) {
+                audio.muted = false;
+                audio.play().then(() => {
+                    btn.innerHTML = '🎵 Jeda Musik';
+                }).catch(err => console.log("Gagal memutar audio:", err));
+            } else {
+                audio.pause();
+                btn.innerHTML = '🎵 Putar Musik';
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const audio = document.getElementById('bgMusic');
+            const btn = document.getElementById('musicToggleBtn');
+
+            if (!audio) return;
+
+            // Memulai pemutaran audio secara otomatis saat halaman siap
+            audio.play().then(() => {
+                if (btn) btn.innerHTML = '🎵 Jeda Musik';
+            }).catch(() => {
+                // Autoplay diblokir browser, tunggu interaksi dari pengguna
+                audio.muted = true;
+            });
+
+            const enableAudioOnInteraction = () => {
+                if (audio.paused || audio.muted) {
+                    audio.muted = false;
+                    audio.play().then(() => {
+                        if (btn) btn.innerHTML = '🎵 Jeda Musik';
+                    }).catch(err => console.log("Autoplay ditolak:", err));
+                }
+            };
+
+            ['click', 'touchstart', 'keydown', 'scroll'].forEach(evt => {
+                document.addEventListener(evt, enableAudioOnInteraction, { once: true });
+            });
+        });
+    </script>
+</body>
+</html>

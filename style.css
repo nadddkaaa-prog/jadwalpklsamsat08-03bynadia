@@ -1,0 +1,482 @@
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+/* Background Gradiasi Animasi Halus */
+body {
+    min-height: 100vh;
+    padding: 40px 20px;
+    background: linear-gradient(-45deg, #ff72ad, #FF007F, #5286ff, #fd56f5, #7e22ce);
+    background-size: 400% 400%;
+    animation: gradientShift 12s ease infinite;
+    position: relative;
+    overflow-x: hidden;
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Pemutar Musik Floating Button */
+.music-player-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 999;
+}
+
+.music-btn {
+    background: #7e22ce;
+    color: #ffffff;
+    border: 2px solid #ffffff;
+    padding: 10px 18px;
+    border-radius: 30px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+.music-btn:hover {
+    transform: scale(1.05);
+    background: #9333ea;
+}
+
+.music-btn.playing {
+    background: #db2777;
+}
+
+/* Hiasan Bunga Melayang */
+.flower-decoration {
+    position: fixed;
+    font-size: 2.2rem;
+    user-select: none;
+    z-index: 1;
+    animation: floatFlower 6s ease-in-out infinite alternate;
+    filter: drop-shadow(0 4px 10px rgba(0,0,0,0.15));
+}
+
+.f1 { top: 5%; left: 3%; animation-delay: 0s; }
+.f2 { top: 22%; right: 4%; animation-delay: 1s; }
+.f3 { bottom: 12%; left: 4%; animation-delay: 2s; }
+.f4 { bottom: 5%; right: 3%; animation-delay: 3s; }
+.f5 { top: 52%; right: 2%; animation-delay: 1.5s; }
+.f6 { top: 65%; left: 2%; animation-delay: 2.5s; }
+
+@keyframes floatFlower {
+    0% { transform: translateY(0px) rotate(0deg) scale(1); }
+    100% { transform: translateY(-20px) rotate(15deg) scale(1.08); }
+}
+
+/* Garis Latar Belakang Estetis */
+.bg-line {
+    position: fixed;
+    background: rgba(20, 2, 4, 0.1);
+    backdrop-filter: blur(4px);
+    z-index: 1;
+    transform: rotate(-35deg);
+}
+
+.line-1 { width: 1100px; height: 16px; top: -100px; left: -200px; }
+.line-2 { width: 1300px; height: 10px; top: 320px; right: -300px; }
+.line-3 { width: 950px; height: 20px; bottom: -100px; left: -100px; }
+
+/* Container Utama Glassmorphism */
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+    background: rgba(255, 102, 217, 0.96);
+    backdrop-filter: blur(16px);
+    border-radius: 24px;
+    padding: 40px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+    position: relative;
+    z-index: 10;
+    border: 1px solid rgba(45, 33, 209, 0.8);
+}
+
+/* Header & Judul */
+header {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.decorative-top-line {
+    height: 4px;
+    width: 100px;
+    background: linear-gradient(90deg, #db428f, #7e22ce, #0284c7);
+    margin: 0 auto 18px auto;
+    border-radius: 10px;
+}
+
+.aesthetic-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    color: #06045c;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+}
+
+.subtitle {
+    color: #033f94;
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+/* Badge Status Live Operasional */
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 18px;
+    border-radius: 30px;
+    font-size: 0.88rem;
+    font-weight: 700;
+    margin-bottom: 25px;
+}
+
+.status-badge.open {
+    background: #dcfce7;
+    color: #000000;
+    border: 1px solid #86efac;
+}
+
+.status-badge.closed {
+    background: #ffe4e6;
+    color: #be123c;
+    border: 1px solid #fecdd3;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: currentColor;
+}
+
+/* Navigasi Tab */
+.nav-tabs {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding-bottom: 20px;
+    border-bottom: 2px dashed #e2e8f0;
+}
+
+.tab-btn {
+    background: #c41e8c;
+    color: #ffffff;
+    border: 1px solid #b510d6;
+    padding: 10px 18px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.tab-btn:hover {
+    background: #7027a1;
+    color: #0f172a;
+    transform: translateY(-2px);
+}
+
+.tab-btn.active {
+    background: linear-gradient(135deg, #0284c7, #7e22ce);
+    color: #ffffff;
+    border-color: transparent;
+    box-shadow: 0 4px 14px rgba(2, 132, 199, 0.35);
+}
+
+/* Content Sections */
+.tab-content {
+    display: none;
+    padding-top: 10px;
+    animation: fadeIn 0.35s ease-in-out;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.section-header {
+    margin-bottom: 24px;
+}
+
+.section-header h2 {
+    font-family: 'Playfair Display', serif;
+    color: #000713;
+    font-size: 1.75rem;
+}
+
+.decorative-line {
+    height: 3px;
+    width: 50px;
+    background: #f749a0;
+    margin-top: 6px;
+    border-radius: 4px;
+}
+
+/* Variasi Card / Box Konten */
+.content-box {
+    padding: 22px;
+    border-radius: 16px;
+    margin-bottom: 20px;
+    line-height: 1.7;
+    border-left: 5px solid;
+}
+
+.highlight-pink {
+    background: #e75ba1;
+    border-color: #8122c0;
+    color: #fffdfe;
+}
+
+.highlight-purple {
+    background: #e75ba1;
+    border-color: #611ca1;
+    color: #f8f8ff;
+}
+
+.highlight-blue {
+    background: #e75ba1;
+    border-color: #4d28a3;
+    color: #0d026b;
+}
+
+.content-box h3 {
+    margin-bottom: 10px;
+    font-size: 1.15rem;
+}
+
+/* Gambar SAMSAT Cimahi & Foto PKL */
+.image-card {
+    text-align: center;
+    margin: 20px 0 30px 0;
+}
+
+.image-card img {
+    width: 100%;
+    max-width: 650px;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+    border: 4px solid #ffffff;
+}
+
+.img-caption {
+    font-size: 0.88rem;
+    color: #111213;
+    margin-top: 10px;
+    font-weight: 600;
+}
+
+/* Grid Instansi */
+.three-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.mini-card {
+    background: #ffffff;
+    padding: 16px;
+    border-radius: 12px;
+    border: 1px solid #050505;
+    text-align: center;
+}
+
+.mini-card .icon {
+    font-size: 1.8rem;
+    margin-bottom: 8px;
+}
+
+.mini-card h4 {
+    font-size: 0.95rem;
+    color: #121213;
+    margin-bottom: 6px;
+}
+
+.mini-card p {
+    font-size: 0.85rem;
+    color: #040b5f;
+}
+
+/* Timeline Sejarah */
+.timeline-badge {
+    display: inline-block;
+    background: #0f172a;
+    color: rgb(218, 44, 116);
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.88rem;
+    margin-bottom: 15px;
+}
+
+/* Grid Schedule */
+.grid-2col {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.card-schedule {
+    background: #f870a4;
+    border-radius: 16px;
+    padding: 22px;
+    border: 1px solid #692180;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+}
+
+.pkl-card {
+    background: #8959b8;
+    border-color: #35006d;
+}
+
+.simple-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+.simple-table th, .simple-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #8a27c4;
+}
+
+.badge-closed {
+    background: #ce41af;
+    color: white;
+    padding: 3px 8px;
+    border-radius: 6px;
+    font-size: 0.78rem;
+    font-weight: 700;
+}
+
+.pkl-badge {
+    display: inline-block;
+    background: #2453aa;
+    color: white;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    margin-top: 8px;
+}
+
+.time-display {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: #ce2278;
+    margin: 15px 0;
+}
+
+.alert-box {
+    background: #fff5f5;
+    border-left: 4px solid #ef4444;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    color: #991b1b;
+}
+
+.alert-box ul {
+    margin-left: 18px;
+    margin-top: 6px;
+}
+
+/* Search Box & Tabel Jadwal PKL */
+.search-box {
+    margin-bottom: 20px;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid #cbd5e1;
+    border-radius: 10px;
+    outline: none;
+    font-size: 0.92rem;
+    transition: all 0.2s;
+}
+
+.search-box input:focus {
+    border-color: #ff5f94;
+    box-shadow: 0 0 8px rgba(2, 132, 199, 0.25);
+}
+
+.table-responsive {
+    overflow-x: auto;
+}
+
+#pklTable {
+    width: 100%;
+    border-collapse: collapse;
+    background: #ee33bf;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid #320685;
+}
+
+#pklTable th {
+    background: #a819bb;
+    color: #ffffff;
+    padding: 14px 16px;
+    text-align: left;
+    font-weight: 600;
+}
+
+.sub-head {
+    font-size: 0.75rem;
+    font-weight: normal;
+    color: hwb(0 91% 3%);
+}
+
+#pklTable td {
+    padding: 14px 16px;
+    border-bottom: 1px solid #930eff;
+    color: #180a96;
+    font-size: 0.92rem;
+}
+
+#pklTable tr:hover {
+    background-color: #f8fafc;
+}
+
+/* Tag Nama */
+.tag-name {
+    display: inline-block;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: 0.82rem;
+}
+
+.tag-name.pink { background: #ffe4e6; color: #be123c; }
+.tag-name.purple { background: #f3e8ff; color: #7e22ce; }
+.tag-name.blue { background: #e0f2fe; color: #0369a1; }
+.tag-name.magenta { background: #fce7f3; color: #be185d; }
+
+footer {
+    text-align: center;
+    margin-top: 35px;
+    padding-top: 20px;
+    color: #000000;
+    font-size: 0.85rem;
+}
